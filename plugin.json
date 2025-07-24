@@ -1,0 +1,6 @@
+{
+  "id": "pp-cal",
+  "name": "logseq-cal",
+  "description": "PP's Calander Extension",
+  "main": "dist/main.js"
+}

@@ -1,4 +1,19 @@
 {
-  "name": "logseq-cal-git",
-  "packageManager": "yarn@4.9.2"
+  "name": "logseq-cal",
+  "type": "module",
+  "packageManager": "yarn@4.9.2",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@logseq/libs": "^0.0.17",
+    "ical.js": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5"
+  }
 }
