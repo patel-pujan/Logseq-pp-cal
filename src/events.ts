@@ -39,8 +39,8 @@ async function clipEvents(vevents: ICAL.Component[]): Promise<ClippedEvent[]> {
         if (!event.isRecurring() && event.startDate.compare(startTime) >= 0 && event.startDate.compare(endTime) <= 0) {
             eventsThisWeek.push({
             event: event,
-            summary: event.summary,
-            startTime: event.startDate.toJSDate.getTime(),
+            summary: event.summary.trimEnd(),
+            startTime: event.startDate,
             });
             return;
         }
@@ -52,8 +52,7 @@ async function clipEvents(vevents: ICAL.Component[]): Promise<ClippedEvent[]> {
                 let occurrence = event.getOccurrenceDetails(next);
                 eventsThisWeek.push({
                     event: occurrence.item,
-                    summary: event.summary,
-                    // startTime: event.startDate.toJSDate().getTime(),
+                    summary: event.summary.trimEnd(),
                     startTime: occurrence.startDate,
                 });
             } else if (next.compare(endTime) > 0) {
@@ -61,6 +60,8 @@ async function clipEvents(vevents: ICAL.Component[]): Promise<ClippedEvent[]> {
             }
         }
     });
+
+    eventsThisWeek.sort((a, b) => a.startTime.toJSDate().getTime() - b.startTime.toJSDate().getTime());
 
     return eventsThisWeek;
 }
