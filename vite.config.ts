@@ -1,16 +1,16 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
-    target: 'esnext',
-    outDir: 'dist',
+    target: "esnext",
+    outDir: "dist",
     emptyOutDir: true,
     rollupOptions: {
-      input: 'src/main.ts',
+      input: "src/main.ts",
       output: {
-        format: 'es',
-        entryFileNames: 'main.js',
+        format: "es",
+        entryFileNames: "main.js",
       },
     },
-  }
+  },
 });
