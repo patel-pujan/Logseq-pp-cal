@@ -13,10 +13,10 @@ function main() {
     populateLogseq,
   );
 
-  // logseq.Editor.registerSlashCommand(
-  //     'Pull Calendar',
-  //     populateLogseq,
-  // );
+  logseq.Editor.registerSlashCommand(
+      'Pull Calendar',
+      populateLogseq,
+  );
 }
 
 async function populateLogseq() {
@@ -28,7 +28,7 @@ async function populateLogseq() {
 
   const block = await logseq.Editor.getCurrentBlock();
 
-  const newContent = "# Weekly Agenda";
+  const newContent = "### Scheduled Events This Week";
   await logseq.Editor.updateBlock(block.uuid, newContent);
 
   for (const event of relevantEvents) {
